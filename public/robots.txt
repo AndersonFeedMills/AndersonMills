@@ -1,0 +1,10 @@
+# LABEL: Anderson Mills Robots
+# FILE ACTION: CREATE
+# FILE: public/robots.txt
+# COMMIT: 04
+# CONTEXT: Anderson Mills public web deployment
+
+User-agent: *
+Allow: /
+
+Sitemap: https://andersonmills.com/sitemap.xml
