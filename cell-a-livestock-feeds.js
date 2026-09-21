@@ -1,6 +1,6 @@
 /*
 LABEL: Anderson Mills Cell A — Livestock Feeds Boundary
-FILE ACTION: CREATE
+FILE ACTION: CREATE 
 FILE: cell-a-livestock-feeds.js
 COMMIT: 02
 CONTEXT: Anderson Mills Feedstore Inventory & Retail Cell Architecture
