@@ -1,5 +1,5 @@
 # Anderson Mills Website
-
+ 
 A warm, heritage-inspired website for **Anderson Mills**, a customer project built around the identity of a rural feed store and community business.
 
 ## Project direction
