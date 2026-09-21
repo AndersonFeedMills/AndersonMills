@@ -1,0 +1,9 @@
+cell_code,cell_name,description,status
+FEED,Animal feeds,Feed products and feed-related ideas,active
+COMM,Commodities and grains,"Grains, commodities, and bulk inputs",active
+HAY,Hay and bedding,"Hay, straw, and bedding",active
+LIME,Lime and soil,"Lime, salt, soil, and field products",active
+SOAP,Soap and cleaning,Soap and general cleaning products,active
+SHAMP,Shampoo and animal care,Shampoo and animal-care products,active
+LAUN,Laundry products,Laundry and washing products,active
+MISC,Miscellaneous farm goods,Other farm products and supplies,active
