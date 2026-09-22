@@ -13,14 +13,10 @@ RULE:
 Only include URLs that actually exist.
 Do not invent routes or pages.
 -->
-
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://andersonmills.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
 </urlset>
