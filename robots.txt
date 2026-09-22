@@ -1,6 +1,6 @@
 # LABEL: Anderson Mills Robots
 # FILE ACTION: CREATE
-# FILE: public/robots.txt
+# FILE: robots.txt
 # COMMIT: 04
 # CONTEXT: Anderson Mills public web deployment
 
