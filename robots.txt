@@ -1,10 +1,10 @@
 # LABEL: Anderson Mills Robots
-# FILE ACTION: CREATE
+# FILE ACTION: UPDATE
 # FILE: robots.txt
-# COMMIT: 04
+# COMMIT: DOMAIN CORRECTION
 # CONTEXT: Anderson Mills public web deployment
 
 User-agent: *
 Allow: /
 
-Sitemap: https://andersonmills.com/sitemap.xml
+Sitemap: https://anderson-mills.com/sitemap.xml
