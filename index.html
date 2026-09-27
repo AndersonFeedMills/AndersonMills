@@ -1,28 +1,37 @@
-```html
 <!--
- * File repo: AndersonFeedMills/AndersonMills
- * File name: index.html
- * Movements: Render the existing storefront first on mobile and desktop;
- * preserve the existing storefront image, physical door position, visible
- * OPEN control, and /mill/ entrance.
+ * FILE: index.html
+ * TARGET: ANDERSON MILLS STOREFRONT
  *
- * Purpose:
- * Render Anderson Mills as the visual storefront entrance across mobile
- * and desktop devices.
+ * MOBILE:
+ * AndersonMills-mobile-storefront.png
  *
- * Does NOT:
+ * DESKTOP:
+ * AndersonMills-desktop-storefront.png
+ *
+ * MOVEMENT:
+ * Render the appropriate storefront artwork for the observer's device.
+ * Preserve the storefront as the entrance and OPEN as the entrance to THE MILL.
+ *
+ * PURPOSE:
+ * Make the storefront render as a mobile composition on phones and a
+ * desktop composition on desktop screens.
+ *
+ * DOES NOT:
  * Change the storefront artwork.
  * Change the /mill/ entrance.
- * Change recipes, animals, forum, marketplace, services, or live events.
  * Create additional files.
- * Modify the Worker or R2 configuration.
+ * Modify the Worker.
+ * Modify R2.
  -->
 
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
 
   <title>Anderson Mills</title>
 
@@ -45,8 +54,6 @@
     }
 
     .storefront {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -56,8 +63,6 @@
 
     .door {
       position: absolute;
-
-      /* Physical 36" × 72" door — set to the door in the image */
       left: 50%;
       top: 50%;
       width: 10%;
@@ -89,20 +94,10 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-align: center;
-
       white-space: nowrap;
     }
 
-    /*
-     * Mobile render.
-     * The same storefront entrance is preserved while the Worker
-     * supplies the mobile storefront artwork.
-     */
     @media (max-width: 767px) {
-      .storefront {
-        object-position: center;
-      }
-
       .door {
         left: 50%;
         top: 50%;
@@ -115,27 +110,24 @@
         font-size: 0.9rem;
       }
     }
-
-    /*
-     * Desktop render.
-     * The Worker supplies the desktop storefront artwork.
-     */
-    @media (min-width: 768px) {
-      .storefront {
-        object-position: center;
-      }
-    }
   </style>
 </head>
 
 <body>
   <main>
 
-    <img
-      class="storefront"
-      src="/graphics/gimg_1789946532267_41keb4md.png"
-      alt="Anderson Mills storefront"
-    >
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="/graphics/AndersonMills-mobile-storefront.png"
+      >
+
+      <img
+        class="storefront"
+        src="/graphics/AndersonMills-desktop-storefront.png"
+        alt="Anderson Mills storefront"
+      >
+    </picture>
 
     <a
       class="door"
@@ -148,4 +140,3 @@
   </main>
 </body>
 </html>
-```
