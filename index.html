@@ -1,68 +1,57 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anderson Mills</title>
+/**
+ * File repo: AndersonFeedMills/AndersonMills
+ * File name: src/index.js
+ * Movements: Add private R2 storefront delivery; detect mobile devices;
+ * serve AndersonMills-mobile-storefront.png to mobile requests and
+ * gimg_1789946532267_41keb4md.png to desktop requests; preserve the
+ * existing ASSETS fallback.
+ *
+ * Purpose:
+ * Serve Anderson Mills storefront artwork from private R2 storage,
+ * selecting the mobile or desktop storefront for the requesting device.
+ *
+ * Does NOT:
+ * Change the Anderson Mills page structure.
+ * Change /mill/ or any recipe, animal, forum, marketplace, or service page.
+ * Create additional files.
+ * Modify the storefront artwork.
+ */
 
-  <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background: #000;
-      overflow: hidden;
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname === "/graphics/gimg_1789946532267_41keb4md.png") {
+      const userAgent = request.headers.get("user-agent") || "";
+
+      const isMobile =
+        /Android|iPhone|iPad|iPod|Mobile|Opera Mini|IEMobile/i.test(userAgent);
+
+      const objectKey = isMobile
+        ? "AndersonMills-mobile-storefront.png"
+        : "gimg_1789946532267_41keb4md.png";
+
+      const object = await env.FEED_MILL_GRAPHICS.get(objectKey);
+
+      if (object === null) {
+        return new Response("Storefront image not found", {
+          status: 404
+        });
+      }
+
+      const headers = new Headers();
+
+      object.writeHttpMetadata(headers);
+      headers.set("etag", object.httpEtag);
+      headers.set("cache-control", "public, max-age=3600");
+      headers.set("vary", "User-Agent");
+
+      return new Response(object.body, {
+        status: 200,
+        headers
+      });
     }
 
-    main {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .storefront {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    .door {
-      position: absolute;
-
-      /* Physical 36" × 72" door — set to the door in the image */
-      left: 50%;
-      top: 50%;
-      width: 10%;
-      height: 45%;
-
-      display: block;
-      cursor: pointer;
-      background: transparent;
-      border: 0;
-      padding: 0;
-    }
-  </style>
-</head>
-
-<body>
-  <main>
-
-    <img
-      class="storefront"
-      src="/graphics/gimg_1789946532267_41keb4md.png"
-      alt="Anderson Mills"
-    >
-
-    <a
-      class="door"
-      href="/mill/"
-      aria-label="Enter Anderson Mills"
-    ></a>
-
-  </main>
-</body>
-</html>
+    return env.ASSETS.fetch(request);
+  }
+};
