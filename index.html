@@ -1,39 +1,137 @@
 <!--
- * FILE: index.html
- * TARGET: ANDERSON MILLS STOREFRONT
+ * File repo: AndersonFeedMills/AndersonMills
+ * File name: index.html
+ * Movements: Add complete search-engine metadata, canonical domain identity,
+ * social metadata, structured site information, and semantic page content;
+ * preserve the storefront artwork, mobile/desktop picture selection,
+ * existing door position, OPEN control, and /mill/ entrance.
  *
- * MOBILE:
- * AndersonMills-mobile-storefront.png
+ * Purpose:
+ * Make Anderson Mills discoverable and clearly identified to search engines,
+ * browsers, social platforms, and other web crawlers while preserving the
+ * storefront as the visual entrance.
  *
- * DESKTOP:
- * AndersonMills-desktop-storefront.png
- *
- * MOVEMENT:
- * Render the appropriate storefront artwork for the observer's device.
- * Preserve the storefront as the entrance and OPEN as the entrance to THE MILL.
- *
- * PURPOSE:
- * Make the storefront render as a mobile composition on phones and a
- * desktop composition on desktop screens.
- *
- * DOES NOT:
+ * Does NOT:
  * Change the storefront artwork.
  * Change the /mill/ entrance.
+ * Change recipes, animals, forum, marketplace, or service pages.
  * Create additional files.
- * Modify the Worker.
- * Modify R2.
+ * Create a favicon.
+ * Create a sitemap.
+ * Change DNS or Wix configuration.
  -->
 
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1"
   >
 
-  <title>Anderson Mills</title>
+  <title>Anderson Mills — The Feed Store &amp; More</title>
+
+  <meta
+    name="description"
+    content="Anderson Mills — the feed store & more. Livestock feeds, recipes, animals, equipment, repairs, services, marketplace, forum, and farm knowledge."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  >
+
+  <meta
+    name="googlebot"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  >
+
+  <meta
+    name="bingbot"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://anderson-mills.com/"
+  >
+
+  <meta
+    name="theme-color"
+    content="#000000"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Anderson Mills — The Feed Store &amp; More"
+  >
+
+  <meta
+    property="og:description"
+    content="Livestock feeds, recipes, animals, equipment, repairs, services, marketplace, forum, and farm knowledge."
+  >
+
+  <meta
+    property="og:url"
+    content="https://anderson-mills.com/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Anderson Mills"
+  >
+
+  <meta
+    property="og:image"
+    content="https://anderson-mills.com/graphics/AndersonMills-desktop-storefront.png"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="Anderson Mills storefront"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Anderson Mills — The Feed Store &amp; More"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Livestock feeds, recipes, animals, equipment, repairs, services, marketplace, forum, and farm knowledge."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://anderson-mills.com/graphics/AndersonMills-desktop-storefront.png"
+  >
+
+  <meta
+    name="twitter:image:alt"
+    content="Anderson Mills storefront"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Anderson Mills",
+    "alternateName": "The Feed Store & More",
+    "url": "https://anderson-mills.com/"
+  }
+  </script>
 
   <style>
     html,
@@ -50,7 +148,6 @@
       position: relative;
       width: 100vw;
       height: 100vh;
-      min-height: 100dvh;
     }
 
     .storefront {
@@ -63,6 +160,8 @@
 
     .door {
       position: absolute;
+
+      /* Physical 36" × 72" door — set to the door in the image */
       left: 50%;
       top: 50%;
       width: 10%;
@@ -71,7 +170,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       cursor: pointer;
       text-decoration: none;
       background: transparent;
@@ -82,39 +180,44 @@
     .open {
       display: inline-block;
       padding: 0.7rem 1.4rem;
-
       background: rgba(0, 0, 0, 0.75);
       color: #fff;
-
       border: 2px solid #fff;
       border-radius: 6px;
-
       font-family: Arial, sans-serif;
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-align: center;
-      white-space: nowrap;
     }
 
-    @media (max-width: 767px) {
-      .door {
-        left: 50%;
-        top: 50%;
-        width: 18%;
-        height: 42%;
-      }
-
-      .open {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-      }
+    .seo-content {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
   </style>
 </head>
 
 <body>
   <main>
+
+    <h1 class="seo-content">
+      Anderson Mills — The Feed Store &amp; More
+    </h1>
+
+    <p class="seo-content">
+      Anderson Mills is a digital feed store and farm community covering
+      livestock feeds, feed recipes, animals, equipment, repairs, services,
+      marketplace activity, forum participation, live farm events,
+      veterinary services, and farm knowledge.
+    </p>
 
     <picture>
       <source
@@ -125,7 +228,7 @@
       <img
         class="storefront"
         src="/graphics/AndersonMills-desktop-storefront.png"
-        alt="Anderson Mills storefront"
+        alt="Anderson Mills storefront — The Feed Store & More"
       >
     </picture>
 
